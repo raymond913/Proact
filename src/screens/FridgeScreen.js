@@ -42,6 +42,9 @@ const ALL_INGREDIENTS = [
 
 const QUICK_ADD = ['Chicken', 'Rice', 'Eggs', 'Pasta', 'Broccoli', 'Tomato', 'Garlic', 'Onion', 'Beef', 'Salmon', 'Spinach', 'Cheese'];
 
+const CUISINES = ['Any', 'Italian', 'Mexican', 'Asian', 'Mediterranean', 'American', 'Indian'];
+const DIETS    = ['Any', 'Vegetarian', 'Vegan', 'Gluten Free'];
+
 // ── Recipe Sheet ──────────────────────────────────────────────────────────────
 function RecipeSheet({ visible, recipes, onClose, onSelect }) {
   const slideAnim = useRef(new Animated.Value(SCREEN_HEIGHT)).current;
@@ -124,6 +127,8 @@ export default function FridgeScreen() {
   const [loading, setLoading]       = useState(false);
   const [showSheet, setShowSheet]   = useState(false);
   const [suggestions, setSuggestions] = useState([]);
+  const [cuisine, setCuisine] = useState('Any');
+  const [diet, setDiet] = useState('Any');
 
   const handleInputChange = (text) => {
     setInputText(text);
@@ -158,7 +163,10 @@ export default function FridgeScreen() {
     }
     setLoading(true);
     try {
-      const results = await searchRecipesByIngredients(ingredients);
+      const results = await searchRecipesByIngredients(ingredients, {
+      cuisine: cuisine !== 'Any' ? cuisine : '',
+      diet: diet !== 'Any' ? diet : '',
+    });
       if (!results.length) {
         Alert.alert('No recipes found', 'Try different ingredients.');
       } else {
@@ -266,6 +274,39 @@ export default function FridgeScreen() {
             </View>
           </View>
         )}
+
+        {/* Filters */}
+        <View style={styles.section}>
+          <Text style={styles.sectionLabel}>FILTERS</Text>
+
+          <Text style={styles.filterSubLabel}>Cuisine</Text>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.filterScroll} contentContainerStyle={styles.filterRow}>
+            {CUISINES.map(c => (
+              <TouchableOpacity
+                key={c}
+                style={[styles.filterChip, cuisine === c && styles.filterChipActive]}
+                onPress={() => setCuisine(c)}
+                activeOpacity={0.7}
+              >
+                <Text style={[styles.filterChipText, cuisine === c && styles.filterChipTextActive]}>{c}</Text>
+              </TouchableOpacity>
+            ))}
+          </ScrollView>
+
+          <Text style={[styles.filterSubLabel, { marginTop: 12 }]}>Diet</Text>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.filterScroll} contentContainerStyle={styles.filterRow}>
+            {DIETS.map(d => (
+              <TouchableOpacity
+                key={d}
+                style={[styles.filterChip, diet === d && styles.filterChipActive]}
+                onPress={() => setDiet(d)}
+                activeOpacity={0.7}
+              >
+                <Text style={[styles.filterChipText, diet === d && styles.filterChipTextActive]}>{d}</Text>
+              </TouchableOpacity>
+            ))}
+          </ScrollView>
+        </View>
 
         {/* Find recipes button */}
         <TouchableOpacity
@@ -387,6 +428,21 @@ const styles = StyleSheet.create({
   clearBtn: { alignItems: 'center', paddingVertical: 10 },
   clearBtnText: { fontSize: 14, color: colors.muted, fontWeight: '600' },
   hint: { textAlign: 'center', color: colors.muted, fontSize: 13, marginTop: 4 },
+
+  filterSubLabel: { fontSize: 12, fontWeight: '600', color: colors.subtext, marginBottom: 8 },
+  filterScroll: { marginHorizontal: -4 },
+  filterRow: { gap: 8, paddingHorizontal: 4 },
+  filterChip: {
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surface,
+    paddingHorizontal: 14,
+    paddingVertical: 7,
+    borderRadius: 20,
+  },
+  filterChipActive: { backgroundColor: colors.primary, borderColor: colors.primary },
+  filterChipText: { fontSize: 13, fontWeight: '600', color: colors.subtext },
+  filterChipTextActive: { color: '#FFFFFF' },
 });
 
 const sheet = StyleSheet.create({

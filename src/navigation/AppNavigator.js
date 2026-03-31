@@ -5,6 +5,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import CalendarScreen from '../screens/CalendarScreen';
 import FridgeScreen from '../screens/FridgeScreen';
 import DashboardScreen from '../screens/DashboardScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 import colors from '../theme/colors';
 
 const Tab = createBottomTabNavigator();
@@ -52,6 +53,13 @@ export default function AppNavigator() {
         component={DashboardScreen}
         options={{
           tabBarIcon: ({ focused }) => <TabIcon label="Progress" focused={focused} />,
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{
+          tabBarIcon: ({ focused }) => <TabIcon label="Profile" focused={focused} />,
         }}
       />
     </Tab.Navigator>

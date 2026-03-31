@@ -125,6 +125,27 @@ export const getUserStats = async (userId = 'user_default') => {
   }
 };
 
+// ── Get history logs from a start date ───────────────────────────────────────
+export const getHistoryLogs = async (userId, startDate) => {
+  try {
+    const response = await fetch(
+      `${SUPABASE_URL}/rest/v1/daily_logs?user_id=eq.${userId}&date=gte.${startDate}&select=*&order=date.desc`,
+      {
+        headers: {
+          'apikey': SUPABASE_KEY,
+          'Authorization': `Bearer ${SUPABASE_KEY}`,
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+    const text = await response.text();
+    return text ? JSON.parse(text) : [];
+  } catch (error) {
+    console.error('Error fetching history:', error);
+    return [];
+  }
+};
+
 // ── Update user stats ─────────────────────────────────────────────────────────
 export const updateUserStats = async ({
   totalMoneySaved, totalMeals, totalWorkouts,

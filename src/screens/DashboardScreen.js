@@ -225,6 +225,22 @@ export default function DashboardScreen() {
           </View>
         </View>
 
+        {/* ── Weekly progress bars ── */}
+        <View style={styles.progressSection}>
+          {[
+            { label: 'Meals', count: weeklyMeals, color: colors.warning },
+            { label: 'Workouts', count: weeklyWorkouts, color: colors.primary },
+          ].map(({ label, count, color }) => (
+            <View key={label} style={styles.progressRow}>
+              <Text style={styles.progressLabel}>{label}</Text>
+              <View style={styles.progressTrack}>
+                <View style={[styles.progressFill, { width: `${(count / 7) * 100}%`, backgroundColor: color }]} />
+              </View>
+              <Text style={styles.progressCount}>{count}/7</Text>
+            </View>
+          ))}
+        </View>
+
         {/* ── This week ── */}
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
@@ -418,6 +434,44 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     color: colors.subtext,
+  },
+
+  // ── Progress bars ──
+  progressSection: {
+    marginBottom: 16,
+    gap: 10,
+  },
+  progressRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  progressLabel: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: colors.subtext,
+    width: 72,
+  },
+  progressTrack: {
+    flex: 1,
+    height: 6,
+    backgroundColor: colors.surface,
+    borderRadius: 3,
+    borderWidth: 1,
+    borderColor: colors.border,
+    overflow: 'hidden',
+  },
+  progressFill: {
+    height: '100%',
+    borderRadius: 3,
+    minWidth: 4,
+  },
+  progressCount: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: colors.muted,
+    width: 28,
+    textAlign: 'right',
   },
 
   // ── Stats grid ──
