@@ -2,6 +2,12 @@
 
 A React Native mobile app that helps you build healthy habits by tracking daily meals and workouts — and showing you how much money you save by cooking at home.
 
+## Try it out
+
+**[Install on Android](https://expo.dev/accounts/raydev1/projects/proact/builds/22a43393-e0f0-455f-b8a9-31eb1992cc55)**
+
+Open the link on an Android device and tap Install. No app store required.
+
 ## Features
 
 - **Today's Plan** — Daily meal and workout cards with an animated calendar view
@@ -101,7 +107,7 @@ src/
 ├── data/         # workouts.json
 ├── lib/          # auth, supabase, notifications, onboarding
 ├── navigation/   # Bottom tab navigator
-├── screens/      # Auth, Calendar, Fridge, Dashboard, Onboarding
+├── screens/      # Auth, Calendar, Fridge, Dashboard, Onboarding, Profile
 └── theme/        # colors.js
 ```
 
