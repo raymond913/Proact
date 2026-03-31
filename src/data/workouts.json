@@ -1,0 +1,124 @@
+{
+  "workouts": [
+    {
+      "id": 1,
+      "name": "Morning Energizer",
+      "duration": 15,
+      "category": "Cardio",
+      "difficulty": "Beginner",
+      "exercises": ["20 Jumping Jacks", "10 Push-ups", "15 Squats", "30s Plank"]
+    },
+    {
+      "id": 2,
+      "name": "Core Starter",
+      "duration": 15,
+      "category": "Core",
+      "difficulty": "Beginner",
+      "exercises": ["20 Crunches", "15 Leg Raises", "30s Plank", "10 Bicycle Crunches"]
+    },
+    {
+      "id": 3,
+      "name": "Quick Stretch",
+      "duration": 15,
+      "category": "Flexibility",
+      "difficulty": "Beginner",
+      "exercises": ["60s Hip Flexor Stretch", "60s Hamstring Stretch", "60s Shoulder Stretch", "60s Spinal Twist"]
+    },
+    {
+      "id": 4,
+      "name": "Bodyweight Basics",
+      "duration": 30,
+      "category": "Strength",
+      "difficulty": "Beginner",
+      "exercises": ["3x10 Push-ups", "3x15 Squats", "3x10 Lunges", "3x10 Tricep Dips"]
+    },
+    {
+      "id": 5,
+      "name": "Cardio Blast",
+      "duration": 30,
+      "category": "Cardio",
+      "difficulty": "Beginner",
+      "exercises": ["5min Jog in Place", "20 Burpees", "30 High Knees", "20 Mountain Climbers"]
+    },
+    {
+      "id": 6,
+      "name": "Lower Body Burn",
+      "duration": 30,
+      "category": "Strength",
+      "difficulty": "Beginner",
+      "exercises": ["3x15 Squats", "3x12 Lunges", "3x15 Glute Bridges", "3x20 Calf Raises"]
+    },
+    {
+      "id": 7,
+      "name": "Upper Body Builder",
+      "duration": 30,
+      "category": "Strength",
+      "difficulty": "Beginner",
+      "exercises": ["3x10 Push-ups", "3x12 Pike Push-ups", "3x15 Arm Circles", "3x10 Tricep Dips"]
+    },
+    {
+      "id": 8,
+      "name": "Full Body Flow",
+      "duration": 45,
+      "category": "Full Body",
+      "difficulty": "Beginner",
+      "exercises": ["3x10 Push-ups", "3x15 Squats", "3x10 Lunges", "3x15 Crunches", "3x10 Burpees"]
+    },
+    {
+      "id": 9,
+      "name": "Yoga for Beginners",
+      "duration": 45,
+      "category": "Flexibility",
+      "difficulty": "Beginner",
+      "exercises": ["Cat-Cow Stretch", "Downward Dog", "Warrior I", "Child's Pose", "Seated Forward Fold"]
+    },
+    {
+      "id": 10,
+      "name": "HIIT Starter",
+      "duration": 45,
+      "category": "Cardio",
+      "difficulty": "Beginner",
+      "exercises": ["30s Jumping Jacks", "30s Rest", "30s High Knees", "30s Rest", "30s Burpees", "30s Rest"]
+    },
+    {
+      "id": 11,
+      "name": "Power Core",
+      "duration": 45,
+      "category": "Core",
+      "difficulty": "Beginner",
+      "exercises": ["3x20 Crunches", "3x15 Leg Raises", "3x45s Plank", "3x20 Russian Twists"]
+    },
+    {
+      "id": 12,
+      "name": "Active Recovery",
+      "duration": 15,
+      "category": "Flexibility",
+      "difficulty": "Beginner",
+      "exercises": ["60s Neck Rolls", "60s Chest Opener", "60s Figure Four Stretch", "60s Child's Pose"]
+    },
+    {
+      "id": 13,
+      "name": "Staircase Cardio",
+      "duration": 30,
+      "category": "Cardio",
+      "difficulty": "Beginner",
+      "exercises": ["5min Stair Climbs", "20 Step-ups", "15 Box Jumps", "10 Lateral Steps"]
+    },
+    {
+      "id": 14,
+      "name": "Push Pull Legs",
+      "duration": 45,
+      "category": "Strength",
+      "difficulty": "Beginner",
+      "exercises": ["3x10 Push-ups", "3x10 Inverted Rows", "3x15 Squats", "3x12 Lunges"]
+    },
+    {
+      "id": 15,
+      "name": "Mindful Movement",
+      "duration": 30,
+      "category": "Flexibility",
+      "difficulty": "Beginner",
+      "exercises": ["5min Deep Breathing", "Sun Salutation x3", "Warrior Flow", "Seated Meditation"]
+    }
+  ]
+}
